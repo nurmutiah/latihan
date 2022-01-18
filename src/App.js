@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [umur, setUmur] = useState(0);
+
+  function tambahUmur() {
+    setUmur(umur + 1);
+  }
+
+  function kurangUmur() {
+    setUmur(umur - 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>{umur}</div>
+      {umur < 5 && (
+        <button className="btn btn-biru" onClick={tambahUmur}>
+          tambah
+        </button>
+      )}
+      {umur !== 0 && (
+        <button className="btn btn-merah" onClick={kurangUmur}>
+          kurang
+        </button>
+      )}
+      {umur === 5 ? <p>umur maksimal</p> : <p>umur belum maksimal</p>}
     </div>
   );
 }
