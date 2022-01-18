@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div>
+      <p>Umur Mutiah</p>
       <div>{umur}</div>
       {umur < 5 && (
         <button className="btn btn-biru" onClick={tambahUmur}>
